@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
+    <title>Search Results</title>
     <style>
-        /* Basic styling to make it look like your screenshots */
+        /* This style makes it look like your screenshot */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
@@ -17,22 +17,28 @@
         }
         .card {
             background-color: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 320px;
             text-align: center;
         }
         h2 {
             margin-top: 0;
+            font-weight: 600;
+            color: #333;
         }
         input[type="text"] {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            box-sizing: border-box; /* Important for padding to work */
+            box-sizing: border-box; /* Important */
+            font-size: 1em;
+        }
+        input[type="text"]::placeholder {
+            color: #aaa;
         }
         .btn {
             width: 100%;
@@ -40,86 +46,42 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1em;
-            text-decoration: none;
-            display: inline-block;
-            box-sizing: border-box; /* Important for padding to work */
-        }
-        .green-btn {
-            background-color: #28a745;
-            color: white;
-        }
-        .blue-btn {
+            font-size: 1.1em;
+            font-weight: 600;
             background-color: #007bff;
             color: white;
         }
-        #search-box {
-            /* This box is hidden at first */
-            display: none;
-        }
-        #download-button {
-            /* The download button is also hidden at first */
-            display: none;
-            margin-top: 10px;
+        .btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-    <div id="captcha-box" class="card">
-        <h2>Are You Human?</h2>
-        <p>Solve this to continue: <strong>3 + 2 = ?</strong></p>
-        <input type="text" id="captcha-input" placeholder="Enter your answer">
-        <button class="btn green-btn" onclick="verifyHuman()">Verify</button>
+    <div class="card">
+        <h2>Search Results</h2>
+        
+        <form onsubmit="checkRollNumber(); return false;">
+            <input type="text" id="roll-number-input" placeholder="Roll Number" required>
+            <button type="submit" class="btn">Search</button>
+        </form>
     </div>
 
-    <div id="search-box" class="card">
-        <h2>Search Results</h2>
-        <input type="text" id="roll-number-input" placeholder="Enter Roll Number">
-        <button class="btn blue-btn" onclick="checkRollNumber()">Search</button>
-        
-        <a href="R1234567890.pdf" id="download-button" class="btn blue-btn">
-            Download PDF
-        </a>
-    </div>
+    <a id="download-link" href="R1234567890.pdf" download style="display: none;"></a>
 
 
     <script>
-        // --- JavaScript Logic ---
-
-        function verifyHuman() {
-            // 1. Get the value from the CAPTCHA input box
-            var answer = document.getElementById('captcha-input').value;
-
-            // 2. Check if the answer is "5"
-            if (answer === '5') {
-                // 3. If correct, hide the CAPTCHA box
-                document.getElementById('captcha-box').style.display = 'none';
-                // 4. And show the SEARCH box
-                document.getElementById('search-box').style.display = 'block';
-            } else {
-                // 5. If wrong, show an error
-                alert('Wrong answer. Please try again.');
-            }
-        }
-
         function checkRollNumber() {
             // 1. Get the value from the roll number input box
             var rollNo = document.getElementById('roll-number-input').value;
             
-            // 2. Get the download button element
-            var downloadBtn = document.getElementById('download-button');
-
-            // 3. Check if the roll number is your dummy number
+            // 2. Check if the roll number is your dummy number
             if (rollNo === '123456789') {
-                // 4. If it matches, show the download button
-                downloadBtn.style.display = 'block';
+                // 3. If it matches, find the hidden download link and "click" it
+                document.getElementById('download-link').click();
             } else {
-                // 5. If it does NOT match, hide the download button
-                downloadBtn.style.display = 'none';
-                if(rollNo.length > 0) { // Only show alert if user typed *something*
-                    alert('Roll Number Not Found!');
-                }
+                // 4. If it does NOT match, show an alert
+                alert('Roll Number Not Found!');
             }
         }
     </script>
