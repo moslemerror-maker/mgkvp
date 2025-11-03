@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.mgkvponline.org.in/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Nov 2025 10:47:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGKVP</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .header-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+   /* Navbar container */
+   .navbar {
+        background-color: #00486B;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    /* Logo text or brand */
+    .brand {
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 14px 0;
+    }
+    /* Navbar links container */
+    .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-links li {
+        margin: 0;
+    }
+    .nav-links a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: block;
+        transition: background 0.3s;
+    }
+    /* Hover effect */
+    .nav-links a:hover {
+        background-color: white;
+        color: black;
+    }
+    /* Active link (Home) */
+    .nav-links a.active {
+        background-color: white;
+        color: black;
+    }
+    /* Hamburger icon */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+        transition: 0.4s;
+    }
+    /* Mobile menu hidden */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #00486B;
+        }
+        .nav-links li {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .nav-links.active {
+            display: flex;
+        }
+        .hamburger {
+            display: flex;
+        }
+    }
+    .responsive-img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+<!-- Header Image -->
+<img src="header.png" alt="MGKVP Header" class="header-img">
+<!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar">
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">The University</a></li>
+        <li><a href="#">Administration</a></li>
+        <li><a href="#">Academics</a></li>
+        <li><a href="http://result.mgkvponline.org.in/" target="_blank">Resultss</a></li>
+        <li><a href="#">Affiliation</a></li>
+        <li><a href="#">Facilities</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Alumni</a></li>
+
+        <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</nav>
+
+<img src="1.png" alt="Convocation 2024" class="responsive-img">
+<img src="2.png" alt="Convocation 2024" class="responsive-img">
+<img src="3.png" alt="Convocation 2024" class="responsive-img">
+<img src="4.png" alt="Convocation 2024" class="responsive-img">
+<img src="5.png" alt="Convocation 2024" class="responsive-img">
+
+
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+</script>
+
+
+</body>
+
+<!-- Mirrored from www.mgkvponline.org.in/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Nov 2025 10:47:12 GMT -->
+</html>
